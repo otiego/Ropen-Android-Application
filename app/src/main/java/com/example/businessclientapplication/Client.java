@@ -4,8 +4,8 @@ public class Client extends User{
     public int phoneNumber;
     public String fullName;
 
-    public Client(String email, String password, int phoneNumber, String fullName) {
-        super(email, password, true);
+    public Client(String email, int phoneNumber, String fullName) {
+        super(email, true);
         this.phoneNumber = phoneNumber;
         this.fullName = fullName;
     }

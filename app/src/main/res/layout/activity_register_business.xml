@@ -2,23 +2,27 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/B"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#243937"
-    tools:context=".RegisterClient">
+    tools:context=".RegisterBusiness">
 
     <TextView
         android:id="@+id/banner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="4dp"
+        android:layout_marginRight="16dp"
         android:fontFamily="@font/aclonica"
         android:gravity="center_horizontal"
         android:text="Ropen"
         android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#009688"
         android:textSize="60sp"
-        android:textStyle="bold"
+        android:textStyle="bold|italic"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -28,8 +32,11 @@
         android:id="@+id/bannerDescription"
         android:layout_width="362dp"
         android:layout_height="31dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginRight="24dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
         android:fontFamily="@font/amarante"
         android:gravity="center_horizontal"
         android:text="Connecting you to the business world"
@@ -43,31 +50,32 @@
 
 
     <EditText
-        android:id="@+id/fullName"
+        android:id="@+id/businessName"
         android:layout_width="370dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:layout_marginRight="16dp"
         android:background="#000000"
         android:ems="10"
         android:fontFamily="sans-serif"
-        android:hint="Full Name"
+        android:hint="Business Name"
         android:inputType="text"
         android:paddingLeft="12dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
         android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bannerDescription" />
 
+
     <EditText
         android:id="@+id/email"
         android:layout_width="370dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="32dp"
         android:layout_marginRight="16dp"
         android:background="#000000"
         android:ems="10"
@@ -75,20 +83,19 @@
         android:hint="Email Address"
         android:inputType="textEmailAddress"
         android:paddingLeft="12dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
         android:textSize="18sp"
-        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fullName" />
+        app:layout_constraintTop_toBottomOf="@+id/businessName" />
 
     <EditText
         android:id="@+id/phoneNumber"
         android:layout_width="370dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="32dp"
         android:layout_marginRight="16dp"
         android:background="#000000"
         android:ems="10"
@@ -96,19 +103,40 @@
         android:hint="Phone Number"
         android:inputType="phone"
         android:paddingLeft="12dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
         android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <EditText
+        android:id="@+id/location"
+        android:layout_width="370dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="16dp"
+        android:background="#000000"
+        android:ems="10"
+        android:fontFamily="sans-serif"
+        android:hint="Location"
+        android:inputType="text"
+        android:paddingLeft="12dp"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
+
+
+    <EditText
         android:id="@+id/password"
         android:layout_width="370dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="24dp"
         android:layout_marginRight="16dp"
         android:background="#000000"
         android:ems="10"
@@ -116,28 +144,25 @@
         android:hint="Password"
         android:inputType="textPassword"
         android:paddingLeft="12dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
         android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
-        app:passwordToggleEnabled="true" />
-
+        app:layout_constraintTop_toBottomOf="@+id/location" />
 
     <Button
-        android:id="@+id/registerClient"
-        android:layout_width="wrap_content"
-        android:layout_height="65dp"
+        android:id="@+id/registerBusiness"
+        android:layout_width="323dp"
+        android:layout_height="54dp"
         android:layout_marginLeft="12dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="#009688"
-        android:text="REGISTER CLIENT"
+        android:text="REGISTER BUSINESS"
         android:textColor="#ffffff"
         android:textSize="26sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -157,7 +182,7 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/bLogin1"
+        android:id="@+id/bLogin2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -169,7 +194,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerClient" />
+        app:layout_constraintTop_toBottomOf="@+id/registerBusiness" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

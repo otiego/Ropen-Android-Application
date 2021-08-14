@@ -2,22 +2,21 @@ package com.example.businessclientapplication;
 
 public class User {
     public String email;
-    public String password;
     public boolean status;
 
-    public User(String email, String password, boolean status) {
+    public User(String email, boolean status, String... values) {
         this.email = email;
-        this.password = password;
         this.status = status;
+    }
+
+    public User() {
+        this.email = "";
+        this.status = true;
     }
 
 
     public String getEmail() {
         return email;
-    }
-
-    public String getPassword() {
-        return password;
     }
 
     public boolean isStatus() {
@@ -26,10 +25,6 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public void setStatus(boolean status) {
