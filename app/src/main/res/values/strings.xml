@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BusinessClientApplication</string>
+    <string name="app_name">Ropen Application</string>
     <string name="title_activity_register_client">RegisterClient</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

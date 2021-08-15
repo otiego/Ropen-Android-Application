@@ -1,6 +1,7 @@
 package com.example.businessclientapplication;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +27,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         TextView businessName;
         TextView businessLocation;
         TextView businessNumber;
+        TextView businessStatus;
 
         public ViewHolder(@NonNull @org.jetbrains.annotations.NotNull View itemView) {
             super(itemView);
@@ -33,6 +35,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             businessName = (TextView) itemView.findViewById(R.id.BusinessName);
             businessLocation = (TextView) itemView.findViewById(R.id.businessLocation);
             businessNumber = (TextView) itemView.findViewById(R.id.businessPhoneNumber);
+            businessStatus = (TextView) itemView.findViewById(R.id.businessStatus);
         }
     }
 
@@ -54,6 +57,14 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         holder.businessNumber.setText(String.valueOf(item.getPhoneNumber()));
         holder.businessName.setText(item.getBusinessName());
         holder.businessLocation.setText(item.getLocation());
+
+        if (item.opened) {
+            holder.businessStatus.setText("Opened");
+            holder.businessStatus.setTextColor(Color.GREEN);
+        } else {
+            holder.businessStatus.setText("Closed");
+            holder.businessStatus.setTextColor(Color.RED);
+        }
     }
 
     @Override
