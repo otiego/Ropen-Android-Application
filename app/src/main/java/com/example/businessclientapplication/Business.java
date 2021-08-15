@@ -1,5 +1,9 @@
 package com.example.businessclientapplication;
 
+import androidx.annotation.NonNull;
+
+import org.jetbrains.annotations.NotNull;
+
 public class Business extends User{
     public String businessName;
     public String location;
@@ -20,6 +24,10 @@ public class Business extends User{
         this.phoneNumber = 0;
     }
 
+    public boolean isOpened() {
+        return opened;
+    }
+
     public String getBusinessName() {
         return businessName;
     }
@@ -32,6 +40,10 @@ public class Business extends User{
         return phoneNumber;
     }
 
+    public void setOpened(boolean opened) {
+        this.opened = opened;
+    }
+
     public void setBusinessName(String businessName) {
         this.businessName = businessName;
     }
@@ -42,5 +54,12 @@ public class Business extends User{
 
     public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    @NonNull
+    @NotNull
+    @Override
+    public String toString() {
+        return this.getBusinessName();
     }
 }

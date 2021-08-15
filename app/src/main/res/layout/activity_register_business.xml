@@ -71,7 +71,7 @@
 
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/businessEmail"
         android:layout_width="370dp"
         android:layout_height="40dp"
         android:layout_marginLeft="32dp"
@@ -91,7 +91,7 @@
         app:layout_constraintTop_toBottomOf="@+id/businessName" />
 
     <EditText
-        android:id="@+id/phoneNumber"
+        android:id="@+id/bPhoneNumber"
         android:layout_width="370dp"
         android:layout_height="40dp"
         android:layout_marginLeft="32dp"
@@ -108,10 +108,10 @@
         android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        app:layout_constraintTop_toBottomOf="@+id/businessEmail" />
 
     <EditText
-        android:id="@+id/location"
+        android:id="@+id/bLocation"
         android:layout_width="370dp"
         android:layout_height="40dp"
         android:layout_marginLeft="32dp"
@@ -128,11 +128,11 @@
         android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/bPhoneNumber" />
 
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/bPassword"
         android:layout_width="370dp"
         android:layout_height="40dp"
         android:layout_marginLeft="32dp"
@@ -149,7 +149,7 @@
         android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/location" />
+        app:layout_constraintTop_toBottomOf="@+id/bLocation" />
 
     <Button
         android:id="@+id/registerBusiness"
@@ -166,7 +166,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
+        app:layout_constraintTop_toBottomOf="@+id/bPassword" />
 
     <ProgressBar
         android:id="@+id/progressBar"

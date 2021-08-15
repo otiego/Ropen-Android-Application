@@ -4,14 +4,17 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,7 +29,9 @@ public class RegisterClient extends AppCompatActivity {
     private EditText password;
     private Button registerClient;
     private TextView backToLogin;
+    ProgressBar progressBar;
     private FirebaseAuth mAuth;
+
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference reference = database.getReference("User");
@@ -39,13 +44,15 @@ public class RegisterClient extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         fullName = (EditText) findViewById(R.id.fullName);
-        email = (EditText) findViewById(R.id.email);
-        phoneNumber = (EditText) findViewById(R.id.phoneNumber);
-        password = (EditText) findViewById(R.id.password);
+        email = (EditText) findViewById(R.id.businessEmail);
+        phoneNumber = (EditText) findViewById(R.id.bPhoneNumber);
+        password = (EditText) findViewById(R.id.bPassword);
         registerClient = (Button) findViewById(R.id.registerClient);
         backToLogin = (TextView) findViewById(R.id.bLogin1);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         registerClient.setOnClickListener(v -> {
+            progressBar.setVisibility(ProgressBar.VISIBLE);
             String email_text = email.getText().toString();
             String password_text = password.getText().toString();
             String fullName_text = fullName.getText().toString();
@@ -53,8 +60,12 @@ public class RegisterClient extends AppCompatActivity {
 
             Client clientObject = new Client(email_text, Integer.parseInt(phoneNumber_text), fullName_text);
 
-
             signUpClient(email_text, password_text, clientObject);
+        });
+
+        backToLogin.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
         });
     }
 
@@ -66,22 +77,24 @@ public class RegisterClient extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-//                            Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             reference.child(user.getUid()).setValue(client);
-                            Intent intent = new Intent(getApplicationContext(), ClientView.class);
-                            startActivity(intent);
+
+                            Snackbar.make(getCurrentFocus(), client.getFullName() + " registered successfully", Snackbar.LENGTH_LONG)
+                                    .setActionTextColor(Color.YELLOW)
+                                    .show();
+//                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//                            startActivity(intent);
                         } else {
                             // If sign in fails, display a message to the user.
-//                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
                             Toast.makeText(RegisterClient.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
-//                            updateUI(null);
                         }
 
                         // ...
                     }
                 });
+        progressBar.setVisibility(ProgressBar.INVISIBLE);
     }
 
 

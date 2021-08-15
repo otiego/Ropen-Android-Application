@@ -18,7 +18,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.core.view.Change;
 
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -42,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        email = (EditText) findViewById(R.id.email);
-        password = (EditText) findViewById(R.id.password);
+        email = (EditText) findViewById(R.id.businessEmail);
+        password = (EditText) findViewById(R.id.bPassword);
         Login = (Button) findViewById(R.id.signIn);
         registerBusiness = (TextView) findViewById(R.id.registerAsBusiness);
         registerClient = (TextView) findViewById(R.id.registerAsClient);
@@ -110,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
                     DataSnapshot next = (DataSnapshot) iterator.next();
                     User value = (User) next.getValue(User.class);
                     if (email.equals(value.email)) {
-                        ChangeLayout(value.status);
+                        ChangeLayout(value.status, email);
                         break;
                     }
                 }
@@ -118,19 +117,21 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void ChangeLayout(boolean status) {
+    private void ChangeLayout(boolean status, String email) {
         Intent intent;
         if(status) {
             intent = new Intent(getApplicationContext(), ClientView.class);
         } else {
+
             intent = new Intent(getApplicationContext(), BusinessView.class);
+            intent.putExtra("USER_EMAIL", email);
         }
         startActivity(intent);
     }
 
     @Override
     public void onBackPressed() {
-        finish();
         System.exit(0);
+        finish();
     }
 }
